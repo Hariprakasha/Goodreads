@@ -27,6 +27,8 @@ public static WebDriver driver;
 	{
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
+		options.addArguments("user-data-dir=/path/to/your/custom/profile");
+		
 		WebDriverManager.chromedriver().setup();
 	}
 	
@@ -45,7 +47,7 @@ public void login() throws IOException, InterruptedException
 	LoginPagePOM log=new LoginPagePOM(driver);
 	log.setlogin();
 	SignUpPOM signup = new SignUpPOM(driver);
-	signup.SignUp(Email, Password);
+//	signup.SignUp(Email, Password);
 	
 
 }

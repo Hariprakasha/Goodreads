@@ -16,10 +16,12 @@ public class SignUpPOM {
 	{
 		PageFactory.initElements(driver,this);
 	}
-	public void SignUp( String Email , String Password)
+	public void SignUp( String Email , String Password) throws InterruptedException
 	{
 		EmailTextField.sendKeys(Email);
+		Thread.sleep(1000);
 		PasswordTextField.sendKeys(Password);
+		Thread.sleep(1000);
 		SigninButton.click();
 	}
 

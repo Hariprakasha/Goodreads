@@ -14,9 +14,11 @@ public class HomePageObjectsPOM extends BaseClass
 	WebElement SearchText;
 	@FindBy(xpath="(//button[@type='submit'])[1]")
 	WebElement SearchButton;
-	@FindBy(xpath="(//span[.='Want to read'])[1]")
+	@FindBy(xpath="(//input[@aria-label='Search books'])[1]")
+	WebElement SearchButtontxtbox;
+	@FindBy(xpath="(//span[.='Want to Read'])[1]")
 	WebElement WantToRead;
-	@FindBy(xpath="//a[.='My Books']")
+	@FindBy(xpath="(//a[.='My Books'])[1]")
 	WebElement Mybooks;
 	@FindBy(xpath="//img[@title='Remove from my books']")
 	WebElement RemoveFromBooks;
@@ -32,24 +34,31 @@ public class HomePageObjectsPOM extends BaseClass
 		
 	}
 
-	public void searchbook(String Book)
+	public void searchbook(String Book) throws InterruptedException
 	{
-		SearchText.sendKeys(Book);
+		//SearchButtontxtbox.click();
+		SearchButtontxtbox.sendKeys(Book);
+		Thread.sleep(1000);
 		SearchButton.click();
+		Thread.sleep(1000);
 		WantToRead.click();
+		Thread.sleep(1000);
 		Mybooks.click();
+		Thread.sleep(1000);
 		RemoveFromBooks.click();
 	}
 	
 	public void AcceptPopup()
 	{
-Alert alert = driver.switchTo().alert();
-alert.accept();
+        Alert alert = driver.switchTo().alert();
+         alert.accept();
 	}
 	
-	public void Logout()
+	public void Logout() throws InterruptedException
 	{
 		Logouticon.click();
+		Thread.sleep(1000);
 		Logoutbtn.click();
+		Thread.sleep(5000);
 	}
 	}
